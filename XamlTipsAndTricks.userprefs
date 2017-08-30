@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{4CDEDB72-C82C-49AA-A771-D6DF1B115192}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XamlTipsAndTricks/App.xaml.cs">
+    <Files>
+      <File FileName="XamlTipsAndTricks/Views/MainPage.xaml" Line="73" Column="1" />
+      <File FileName="XamlTipsAndTricks/App.xaml.cs" Line="8" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.XamlTipsAndTricks.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.XamlTipsAndTricks.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.730DD60D-7582-4688-9109-1675880138D9" />
+</Properties>

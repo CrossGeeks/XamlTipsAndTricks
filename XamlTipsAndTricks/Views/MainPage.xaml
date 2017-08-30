@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="XamlTipsAndTricks.MainPage"
+             xmlns:local="clr-namespace:XamlTipsAndTricks"
+             NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+        <StackLayout Padding="0,20,0,0" x:Name="mainLayout">
+             <Label  Text="My dogs &#128584;" HorizontalOptions="Center" x:Name="label">
+                <Label.Triggers>
+                     <DataTrigger TargetType="Label"
+                                     Binding="{Binding IsReadOnly}"
+                                     Value="True">
+                            <Setter Property="TextColor" Value="Black" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding IsReadOnly}"
+                                     Value="False">
+                            <Setter Property="TextColor" Value="Red" />
+                        </DataTrigger>
+                 </Label.Triggers>
+             </Label>
+            
+             <Label Text="{Binding Title, StringFormat='{0} Favorites'}" HorizontalOptions="Center"/>
+
+            <ListView ItemsSource="{Binding Dogs}" VerticalOptions="Fill"
+                      HasUnevenRows="true" RowHeight="200" 
+                      HeightRequest="{Binding Dogs, Converter={StaticResource IListHeightConverter}, ConverterParameter=200}">
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <ViewCell>
+                        <AbsoluteLayout>
+                                <Image  
+                                       Source="{Binding Photo}" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Aspect="AspectFill"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                         AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                                
+                                <Label Text="Martin &#10; 2 years old " 
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center" 
+                                        TextColor="White"
+                                        BackgroundColor="{DynamicResource OverlayColor}"
+                                        AbsoluteLayout.LayoutFlags="All" 
+                                        AbsoluteLayout.LayoutBounds="0,1,1,0.25">
+                                </Label>
+                        
+                                <Image Source="delete"      
+                                        AbsoluteLayout.LayoutFlags="All" IsVisible="{Binding IsEnable}"
+                                        AbsoluteLayout.LayoutBounds="1,0,0.2,0.2">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                    Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference mainLayout}}"
+                                                    CommandParameter="{Binding .}" />
+                                      </Image.GestureRecognizers>
+                                </Image>
+                            </AbsoluteLayout>
+                    </ViewCell>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+              </ListView>
+            
+             <local:FooterView>
+                 <x:Arguments>
+                    <x:Int32>2010</x:Int32>
+                  </x:Arguments>
+             </local:FooterView>
+            
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
